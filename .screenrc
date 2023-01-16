@@ -1,0 +1,42 @@
+# escape character is "C-z"
+escape 
+
+# always exsit status line on the bottom of terminal
+#termcapinfo kterm 'hs:ts=\E[?2S\E[?E\E[?%i%dT:fs=\E[?F:es:ds=\E[?E'
+
+# detach on hangup
+autodetach on
+
+# append some strings to the register inside screen
+register c '/* */'
+register p '192.168.'
+
+# set inversed color
+sorendition 5 90
+#sorendition 10 71
+#sorendition 10 23
+
+# terminal kanji code
+# defkanji euc
+# terminfo kterm KJ=euc
+# terminfo kterm16c KJ=euc
+
+# misc
+startup_message off
+activity "some activities have occured in the region #%."
+
+# show status line always
+#defhstatus "n (t)"
+#defhstatus n(t)
+
+# don't resize when attached
+fit
+#caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
+#hardstatus alwayslastline "%[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+#hardstatus alwayslastline "%-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwayslastline "%?%F%{= gW}%:%{= Kk}%{= .g}[%H] %{-}%-w%{=b bw}%n %t%{-}%+w"
+bind w windowlist -b
+defscrollback 4000
+attrcolor b ".I"
+defbce on 
+termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
